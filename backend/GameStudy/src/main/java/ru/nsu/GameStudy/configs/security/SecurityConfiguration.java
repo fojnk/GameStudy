@@ -16,8 +16,8 @@ import org.springframework.security.web.SecurityFilterChain;
 
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import ru.nsu.GameStudy.services.LogoutService;
-import ru.nsu.GameStudy.services.UserDetailsServiceImp;
+import ru.nsu.GameStudy.authentication.services.LogoutService;
+import ru.nsu.GameStudy.authentication.services.UserDetailsServiceImp;
 
 
 @Configuration

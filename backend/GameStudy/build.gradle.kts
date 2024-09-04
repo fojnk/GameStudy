@@ -1,3 +1,5 @@
+import org.springframework.boot.gradle.tasks.run.BootRun
+
 plugins {
 	java
 	id("org.springframework.boot") version "3.3.1"
@@ -15,10 +17,15 @@ java {
 
 repositories {
 	mavenCentral()
+	mavenLocal()
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-web")
+	compileOnly("org.projectlombok:lombok")
+	annotationProcessor("org.projectlombok:lombok")
+	implementation("org.mapstruct:mapstruct:1.6.0.Beta1")
+	implementation("org.springframework.boot:spring-boot-starter-web" )
+	annotationProcessor("org.mapstruct:mapstruct-processor:1.6.0.Beta1")
 	//developmentOnly("org.springframework.boot:spring-boot-devtools")
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2")
 	//implementation("org.springdoc:springdoc-openapi-starter-webflux-ui:2.0.2")
@@ -32,8 +39,6 @@ dependencies {
 	implementation("jakarta.persistence:jakarta.persistence-api:3.1.0")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.security:spring-security-config")
-	compileOnly("org.projectlombok:lombok")
-	annotationProcessor("org.projectlombok:lombok")
 
 
 	implementation("io.hypersistence:hypersistence-utils-hibernate-63:3.7.0")
@@ -44,6 +49,10 @@ dependencies {
 	}
 }
 
-tasks.withType<Test> {
-	useJUnitPlatform()
+//tasks.withType<Test> {
+//	useJUnitPlatform()
+//}
+
+tasks.named<BootRun>("bootRun") {
+	mainClass.set("ru.nsu.GameStudy.GameStudyApplication")
 }

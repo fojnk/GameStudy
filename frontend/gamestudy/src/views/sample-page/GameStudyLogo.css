@@ -1,0 +1,68 @@
+/* src/GameStudy.css */
+.game-study-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    position: relative;
+    
+    overflow: hidden;
+  }
+  
+  .game-study-word {
+    font-size: 4rem;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .rotating-elements {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 500px; /* Увеличил ширину обертки */
+    height: 500px; /* Увеличил высоту обертки */
+    transform: translate(-50%, -50%);
+  }
+  
+  .book1,
+  .book2,
+  .joystick2,
+  .joystick1 {
+    top: 30%;
+    left: 50%;
+    position: absolute;
+    font-size: 2rem;
+    color: #666;
+    transform-origin: center;
+    animation: spiral 6s linear infinite; /* Увеличил длительность анимации для медленного движения */
+  }
+  
+  .book1 {
+    animation-delay: 0s;
+  }
+  
+  .joystick1 {
+    animation-delay: -0.75s; /* Чтобы элементы не двигались синхронно */
+  }
+
+
+  .book2 {
+    animation-delay: -1.5s;
+  }
+  
+  .joystick2 {
+    animation-delay: -2.25s; /* Чтобы элементы не двигались синхронно */
+  }
+  
+  /* Спиральная анимация */
+  @keyframes spiral {
+    0% {
+      transform: rotate(0deg) translateX(310px) rotate(0deg); /* Увеличил радиус перемещения */
+    }
+    100% {
+      transform: rotate(360deg) translateX(310px) rotate(-360deg); /* Увеличил радиус перемещения */
+    }
+  }
